@@ -12,7 +12,7 @@ The API allows searching for addresses around the world, using either a postal c
 
 ## Install
 
-'npm install postcoder-address-lookup'
+`npm install postcoder-address-lookup`
 
 https://www.npmjs.com/package/postcoder-address-lookup
 
