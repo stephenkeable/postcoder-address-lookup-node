@@ -10,6 +10,12 @@ The API allows searching for addresses around the world, using either a postal c
 
 [For full developer documentation](https://developers.alliescomputing.com)
 
+## Install
+
+'npm install postcoder-address-lookup'
+
+https://www.npmjs.com/package/postcoder-address-lookup
+
 ### Basic usage
 
 ```javascript
