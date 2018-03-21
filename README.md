@@ -19,7 +19,7 @@ https://www.npmjs.com/package/postcoder-address-lookup
 ### Basic usage
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-postcode-lookup");
 
 address_lookup.init("[YOUR API KEY HERE]");
 
@@ -38,7 +38,7 @@ address_lookup.searchAddress("NR14 7PZ", "GB", function(result, error) {
 ### Returning latitude and longitude with addresses
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-postcode-lookup");
 
 address_lookup.init("[YOUR API KEY HERE]");
 
@@ -61,7 +61,7 @@ Extra parameters can be passed using an options object, which is converted into 
 A full list of these parameters can be found in the [developer documentation](https://developers.alliescomputing.com/postcoder-web-api/address-lookup/premise)
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-postcode-lookup");
 
 var options = {
     lines: 2,
@@ -85,7 +85,7 @@ address_lookup.searchAddress("NR14 7PZ", "GB", function(result, error) {
 Options can also be passed after the init using `setOptions()`
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-postcode-lookup");
 
 address_lookup.init("[YOUR API KEY HERE]");
 
@@ -103,7 +103,7 @@ address_lookup.setOptions(options);
 For the UK you can also search for street level data (No organisation names, building names or numbers)
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-postcode-lookup");
 
 address_lookup.init("[YOUR API KEY HERE]");
 
@@ -122,7 +122,7 @@ address_lookup.searchStreet("NR14 7PZ", function(result, error) {
 ### List of countries along with ISO2 codes
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-postcode-lookup");
 
 address_lookup.init("[YOUR API KEY HERE]");
 
@@ -145,7 +145,7 @@ Returns an object with information about number of credits on your account and m
 [Full list of fields returned](https://developers.alliescomputing.com/postcoder-web-api/error-handling)
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-postcode-lookup");
 
 address_lookup.init("[YOUR API KEY HERE]");
 
