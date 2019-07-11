@@ -1,9 +1,9 @@
 {
   "name": "postcoder-address-lookup",
   "version": "1.0.0",
-  "description": "Node package to simplify the use of the PostCoder Web API from Allies, which offers UK and international postcode and address lookup.",
+  "description": "Node package to simplify the use of the Postcoder API from Allies, which offers UK and international postcode and address lookup.",
   "main": "index.js",
-  "homepage": "https://www.alliescomputing.com/postcoder/address-lookup",
+  "homepage": "https://postcoder.com/address-lookup",
   "scripts": {
     "test": "mocha"
   },
