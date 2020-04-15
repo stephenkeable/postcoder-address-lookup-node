@@ -1,17 +1,19 @@
 # Postcoder address lookup
 
-Simple node wrapper for address lookup and postcode lookup endpoints of the PostCoder Web API from Allies.
+Simple node wrapper for address lookup and postcode lookup endpoints of the
+Postcoder API from Allies.
 
-[Find out more about the address lookup API](https://postcoder.com/address-lookup) and [sign up for a trial to get an API key](https://postcoder.com/sign-up)
+[Find out more about the address lookup API](https://postcoder.com/address-lookup)
+and [sign up for a trial to get an API key](https://postcoder.com/sign-up)
 
 ## v1 to v2
 
 Move to ES6 syntax within module.
 Functionally the same however the getCountries() method has been removed.
 
+The API allows searching for addresses around the world, using either a
+postal code or fragment of an address, along with the country you want to search.
 **Note: This is a paid for API**
-
-The API allows searching for addresses around the world, using either a postal code or fragment of an address, along with the country you want to search.
 
 [For full developer documentation](https://postcoder.com/docs/address-lookup)
 
@@ -19,7 +21,7 @@ The API allows searching for addresses around the world, using either a postal c
 
 `npm install postcoder-address-lookup`
 
-https://www.npmjs.com/package/postcoder-address-lookup
+[Package on npm](https://www.npmjs.com/package/postcoder-address-lookup)
 
 ### Basic usage
 
@@ -61,9 +63,11 @@ address_lookup.searchAddressGeo("NR14 7PZ", "GB", function(result, error) {
 
 ### Passing additional options
 
-Extra parameters can be passed using an options object, which is converted into the querystring of the API request.
+Extra parameters can be passed using an options object, which is
+converted into the querystring of the API request.
 
-A full list of these parameters can be found in the [developer documentation](https://postcoder.com/docs/address-lookup#additional-data)
+A full list of these parameters can be found in the
+[developer documentation](https://postcoder.com/docs/address-lookup#additional-data)
 
 ```javascript
 var address_lookup = require("postcoder-address-lookup");
@@ -105,7 +109,8 @@ address_lookup.setOptions(options);
 
 ### UK Street level searching
 
-For the UK you can also search for street level data (No organisation names, building names or numbers)
+For the UK you can also search for street level data (No organisation names,
+  building names or numbers)
 
 ```javascript
 var address_lookup = require("postcoder-address-lookup");
@@ -140,7 +145,8 @@ address_lookup.checkStatus(function(result, error) {
     if (error) {
         console.log(error);
     } else {
-        // returns an object with information about number of credits on your account and more
+        // returns an object with information about number of credits
+        // on your account and more
         console.log(result);
     }
 
