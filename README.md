@@ -2,7 +2,7 @@
 
 Simple node wrapper for address lookup and postcode lookup endpoints of the PostCoder Web API from Allies.
 
-[Find out more about the address lookup API](https://www.alliescomputing.com/postcoder/address-lookup) and [sign up for a trial to get an API key](https://www.alliescomputing.com/postcoder/sign-up)
+[Find out more about the address lookup API](https://postcoder.com/address-lookup) and [sign up for a trial to get an API key](https://postcoder.com/sign-up)
 
 ## v1 to v2
 
@@ -13,7 +13,7 @@ Functionally the same however the getCountries() method has been removed.
 
 The API allows searching for addresses around the world, using either a postal code or fragment of an address, along with the country you want to search.
 
-[For full developer documentation](https://developers.alliescomputing.com)
+[For full developer documentation](https://postcoder.com/docs/address-lookup)
 
 ## Install
 
@@ -63,7 +63,7 @@ address_lookup.searchAddressGeo("NR14 7PZ", "GB", function(result, error) {
 
 Extra parameters can be passed using an options object, which is converted into the querystring of the API request.
 
-A full list of these parameters can be found in the [developer documentation](https://developers.alliescomputing.com/postcoder-web-api/address-lookup/premise)
+A full list of these parameters can be found in the [developer documentation](https://postcoder.com/docs/address-lookup#additional-data)
 
 ```javascript
 var address_lookup = require("postcoder-address-lookup");
@@ -128,7 +128,7 @@ address_lookup.searchStreet("NR14 7PZ", function(result, error) {
 
 Returns an object with information about number of credits on your account and more
 
-[Full list of fields returned](https://developers.alliescomputing.com/postcoder-web-api/error-handling)
+[Full list of fields returned](https://postcoder.com/docs/status)
 
 ```javascript
 var address_lookup = require("postcoder-address-lookup");
