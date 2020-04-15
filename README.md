@@ -4,6 +4,11 @@ Simple node wrapper for address lookup and postcode lookup endpoints of the Post
 
 [Find out more about the address lookup API](https://www.alliescomputing.com/postcoder/address-lookup) and [sign up for a trial to get an API key](https://www.alliescomputing.com/postcoder/sign-up)
 
+## v1 to v2
+
+Move to ES6 syntax within module.
+Functionally the same however the getCountries() method has been removed.
+
 **Note: This is a paid for API**
 
 The API allows searching for addresses around the world, using either a postal code or fragment of an address, along with the country you want to search.
