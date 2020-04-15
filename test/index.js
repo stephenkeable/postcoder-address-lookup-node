@@ -194,47 +194,6 @@ describe('AlliesPostcodeLookup', function() {
 
     });
 
-    describe('.getCountries()',function() {
-
-        it("Should return result object and false for error.", function(done) {
-
-            var address_lookup = require("../");
-
-            address_lookup.init();
-
-            address_lookup.getCountries( function(result, error) {
-
-                assert.equal(typeof result, "object");
-                assert.equal(error, false);
-
-                done();
-
-            });
-
-        });
-
-        it("Should return Afghanistan first and Zimbabwe last", function(done) {
-
-            var address_lookup = require("../");
-
-            address_lookup.init();
-
-            address_lookup.getCountries( function(result, error) {
-
-                var first_country = result[0];
-                var last_country = result[result.length - 1];
-
-                assert.equal(first_country.iso2, "AF");
-                assert.equal(last_country.iso2, "ZW");
-
-                done();
-
-            });
-
-        });
-
-    });
-
     describe('.searchAddress()',function() {
 
         it("Should return result array with more than one record", function(done) {

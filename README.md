@@ -119,25 +119,6 @@ address_lookup.searchStreet("NR14 7PZ", function(result, error) {
 });
 ```
 
-### List of countries along with ISO2 codes
-
-```javascript
-var address_lookup = require("postcoder-address-lookup");
-
-address_lookup.init("[YOUR API KEY HERE]");
-
-address_lookup.getCountries(function(result, error) {
-
-    if (error) {
-        console.log(error);
-    } else {
-        // returns an array of countries
-        console.log(result);
-    }
-
-});
-```
-
 ### Check status of your API key
 
 Returns an object with information about number of credits on your account and more
