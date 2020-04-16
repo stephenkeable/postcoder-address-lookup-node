@@ -6,16 +6,16 @@ Postcoder API from Allies.
 [Find out more about the address lookup API](https://postcoder.com/address-lookup)
 and [sign up for a trial to get an API key](https://postcoder.com/sign-up)
 
-## v1 to v2
-
-Move to ES6 syntax within module.
-Functionally the same however the getCountries() method has been removed.
-
 The API allows searching for addresses around the world, using either a
 postal code or fragment of an address, along with the country you want to search.
 **Note: This is a paid for API**
 
 [For full developer documentation](https://postcoder.com/docs/address-lookup)
+
+## v1 to v2
+
+Move to ES6 syntax within module.
+Functionally the same however the getCountries() method has been removed.
 
 ## Install
 
