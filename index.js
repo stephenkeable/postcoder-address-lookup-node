@@ -1,6 +1,4 @@
-const request = require("request");
-const qs = require("qs");
-
+const https = require("https");
 /*
 Create instance and basic default options
 */
@@ -53,25 +51,31 @@ class AlliesPostcodeLookup {
   Internal helper functions
   */
 	static sendRequest(requestUrl, callback) {
-		// Could probably get rid of dependency on the 'request' library to be honest
-
-		request(requestUrl, (error, response, body) => {
-			if (!error && response.statusCode === 200) {
-				// Convert response into a JSON object
-				const statusResponse = JSON.parse(body);
-
-				return callback(statusResponse, false);
-			}
-			if (error) {
-				return callback(false, error);
-			}
-			const errorResponse = {
-				http_status: response.statusCode,
-				error_body: body,
-			};
-
-			return callback(false, errorResponse);
-		});
+		https
+			.get(requestUrl, (response) => {
+				const data = [];
+				response.on("data", (chunk) => {
+					data.push(chunk);
+				});
+				response.on("end", () => {
+					if (response.statusCode === 200) {
+						const theResponse = JSON.parse(data.join());
+						return callback(theResponse, false);
+					}
+					const errorResponse = {
+						http_status: response.statusCode,
+						error_body: "Error",
+					};
+					return callback(false, errorResponse);
+				});
+			})
+			.on("error", (e) => {
+				const errorResponse = {
+					http_status: 500,
+					error_body: e,
+				};
+				return callback(false, errorResponse);
+			});
 	}
 
 	static trimCheck(text) {
@@ -82,6 +86,12 @@ class AlliesPostcodeLookup {
 			return false;
 		}
 		return true;
+	}
+
+	static queryString(object) {
+		return Object.keys(object)
+			.map((key) => `${key}=${object[key]}`)
+			.join("&");
 	}
 
 	/*
@@ -123,9 +133,9 @@ class AlliesPostcodeLookup {
 
 		const requestUrl = `${this.config.urlBase}${
 			this.config.apiKey
-		}/address/${theCountry}/${encodeURIComponent(search)}?${qs.stringify(
-			this.config.options
-		)}${pageNumStr}`;
+		}/address/${theCountry}/${encodeURIComponent(
+			search
+		)}?${AlliesPostcodeLookup.queryString(this.config.options)}${pageNumStr}`;
 		AlliesPostcodeLookup.sendRequest(requestUrl, (result, error) =>
 			callback(result, error)
 		);
@@ -141,9 +151,9 @@ class AlliesPostcodeLookup {
 
 		const requestUrl = `${this.config.urlBase}${
 			this.config.apiKey
-		}/addressgeo/${theCountry}/${encodeURIComponent(search)}?${qs.stringify(
-			this.config.options
-		)}${pageNumStr}`;
+		}/addressgeo/${theCountry}/${encodeURIComponent(
+			search
+		)}?${AlliesPostcodeLookup.queryString(this.config.options)}${pageNumStr}`;
 		AlliesPostcodeLookup.sendRequest(requestUrl, (result, error) =>
 			callback(result, error)
 		);
@@ -158,7 +168,7 @@ class AlliesPostcodeLookup {
 				this.config.apiKey
 			}/address/${theCountry}/udprn?udprn=${encodeURIComponent(
 				theUdprn
-			)}&${qs.stringify(this.config.options)}`;
+			)}&${AlliesPostcodeLookup.queryString(this.config.options)}`;
 			AlliesPostcodeLookup.sendRequest(requestUrl, (result, error) =>
 				callback(result, error)
 			);
@@ -181,7 +191,7 @@ class AlliesPostcodeLookup {
 				this.config.apiKey
 			}/addressgeo/${theCountry}/udprn?udprn=${encodeURIComponent(
 				theUdprn
-			)}&${qs.stringify(this.config.options)}`;
+			)}&${AlliesPostcodeLookup.queryString(this.config.options)}`;
 			AlliesPostcodeLookup.sendRequest(requestUrl, (result, error) =>
 				callback(result, error)
 			);
@@ -203,9 +213,9 @@ class AlliesPostcodeLookup {
 	searchStreet(search, callback) {
 		const requestUrl = `${this.config.urlBase}${
 			this.config.apiKey
-		}/street/UK/${encodeURIComponent(search)}?${qs.stringify(
-			this.config.options
-		)}`;
+		}/street/UK/${encodeURIComponent(
+			search
+		)}?${AlliesPostcodeLookup.queryString(this.config.options)}`;
 		AlliesPostcodeLookup.sendRequest(requestUrl, (result, error) =>
 			callback(result, error)
 		);
@@ -214,7 +224,7 @@ class AlliesPostcodeLookup {
 	searchStreetGeo(search, callback) {
 		const requestUrl = `${this.config.urlBase}${
 			this.config.apiKey
-		}/geo/UK/${encodeURIComponent(search)}?${qs.stringify(
+		}/geo/UK/${encodeURIComponent(search)}?${AlliesPostcodeLookup.queryString(
 			this.config.options
 		)}`;
 		AlliesPostcodeLookup.sendRequest(requestUrl, (result, error) =>
@@ -222,5 +232,12 @@ class AlliesPostcodeLookup {
 		);
 	}
 }
+
+// const test = new AlliesPostcodeLookup();
+// console.log(test);
+// test.checkStatus((res, err) => {
+//   console.log(res);
+//   console.log(err);
+// });
 
 module.exports = new AlliesPostcodeLookup();
