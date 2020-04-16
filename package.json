@@ -17,8 +17,6 @@
     "url": "https://github.com/stephenkeable/postcoder-address-lookup-node/issues"
   },
   "dependencies": {
-    "request": "^2.81.0",
-    "qs": "6.5.0"
   },
   "devDependencies": {
     "mocha": "^3.5.0",
