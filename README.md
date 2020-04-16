@@ -15,7 +15,7 @@ postal code or fragment of an address, along with the country you want to search
 ## v1 to v2
 
 Move to ES6 syntax within module.
-Functionally the same however the getCountries() method has been removed.
+ally the same however the getCountries() method has been removed.
 
 ## Install
 
@@ -26,11 +26,11 @@ Functionally the same however the getCountries() method has been removed.
 ### Basic usage
 
 ```javascript
-var address_lookup = require("postcoder-address-lookup");
+const addressLookup = require('postcoder-address-lookup');
 
-address_lookup.init("[YOUR API KEY HERE]");
+addressLookup.init('[YOUR API KEY HERE]');
 
-address_lookup.searchAddress("NR14 7PZ", "GB", function(result, error) {
+addressLookup.searchAddress('NR14 7PZ', 'GB', (result, error) => {
 
     if (error) {
         console.log(error);
@@ -45,11 +45,11 @@ address_lookup.searchAddress("NR14 7PZ", "GB", function(result, error) {
 ### Returning latitude and longitude with addresses
 
 ```javascript
-var address_lookup = require("postcoder-address-lookup");
+var addressLookup = require('postcoder-address-lookup');
 
-address_lookup.init("[YOUR API KEY HERE]");
+addressLookup.init('[YOUR API KEY HERE]');
 
-address_lookup.searchAddressGeo("NR14 7PZ", "GB", function(result, error) {
+addressLookup.searchAddressGeo('NR14 7PZ', 'GB', (result, error) => {
 
     if (error) {
         console.log(error);
@@ -70,16 +70,16 @@ A full list of these parameters can be found in the
 [developer documentation](https://postcoder.com/docs/address-lookup#additional-data)
 
 ```javascript
-var address_lookup = require("postcoder-address-lookup");
+var addressLookup = require('postcoder-address-lookup');
 
 var options = {
     lines: 2,
-    addtags: "udprn"
+    addtags: 'udprn',
 };
 
-address_lookup.init("[YOUR API KEY HERE]", options);
+addressLookup.init('[YOUR API KEY HERE]', options);
 
-address_lookup.searchAddress("NR14 7PZ", "GB", function(result, error) {
+addressLookup.searchAddress('NR14 7PZ', 'GB', (result, error) => {
 
     if (error) {
         console.log(error);
@@ -94,16 +94,16 @@ address_lookup.searchAddress("NR14 7PZ", "GB", function(result, error) {
 Options can also be passed after the init using `setOptions()`
 
 ```javascript
-var address_lookup = require("postcoder-address-lookup");
+var addressLookup = require('postcoder-address-lookup');
 
-address_lookup.init("[YOUR API KEY HERE]");
+addressLookup.init('[YOUR API KEY HERE]');
 
 var options = {
     lines: 2,
-    addtags: "udprn"
+    addtags: 'udprn',
 };
 
-address_lookup.setOptions(options);
+addressLookup.setOptions(options);
 
 ```
 
@@ -113,11 +113,11 @@ For the UK you can also search for street level data (No organisation names,
   building names or numbers)
 
 ```javascript
-var address_lookup = require("postcoder-address-lookup");
+var addressLookup = require('postcoder-address-lookup');
 
-address_lookup.init("[YOUR API KEY HERE]");
+addressLookup.init('[YOUR API KEY HERE]');
 
-address_lookup.searchStreet("NR14 7PZ", function(result, error) {
+addressLookup.searchStreet('NR14 7PZ', (result, error) => {
 
     if (error) {
         console.log(error);
@@ -136,11 +136,11 @@ Returns an object with information about number of credits on your account and m
 [Full list of fields returned](https://postcoder.com/docs/status)
 
 ```javascript
-var address_lookup = require("postcoder-address-lookup");
+var addressLookup = require('postcoder-address-lookup');
 
-address_lookup.init("[YOUR API KEY HERE]");
+addressLookup.init('[YOUR API KEY HERE]');
 
-address_lookup.checkStatus(function(result, error) {
+addressLookup.checkStatus((result, error) => {
 
     if (error) {
         console.log(error);
