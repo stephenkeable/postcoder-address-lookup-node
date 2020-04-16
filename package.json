@@ -1,26 +1,27 @@
 {
-  "name": "postcoder-address-lookup",
-  "version": "1.0.0",
-  "description": "Node package to simplify the use of the Postcoder API from Allies, which offers UK and international postcode and address lookup.",
-  "main": "index.js",
-  "homepage": "https://postcoder.com/address-lookup",
-  "scripts": {
-    "test": "mocha"
-  },
-  "author": "Stephen Keable (https://www.stephenkeable.co.uk)",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/stephenkeable/postcoder-address-lookup-node.git"
-  },
-  "bugs": {
-    "url": "https://github.com/stephenkeable/postcoder-address-lookup-node/issues"
-  },
-  "dependencies": {
-    "request": "^2.81.0",
-    "qs": "6.5.0"
-  },
-  "devDependencies": {
-    "mocha": "^3.5.0"
-  }
+	"name": "postcoder-address-lookup",
+	"version": "2.0.0",
+	"description": "Node package to simplify the use of the Postcoder API from Allies, which offers UK and international postcode and address lookup.",
+	"main": "index.js",
+	"homepage": "https://postcoder.com/address-lookup",
+	"scripts": {
+		"test": "nyc --reporter=html --reporter=text mocha"
+	},
+	"author": "Stephen Keable (https://www.stephenkeable.co.uk)",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stephenkeable/postcoder-address-lookup-node.git"
+	},
+	"bugs": {
+		"url": "https://github.com/stephenkeable/postcoder-address-lookup-node/issues"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "^6.8.0",
+		"eslint-config-airbnb-base": "^14.1.0",
+		"eslint-plugin-import": "^2.20.2",
+		"mocha": "^3.5.0",
+		"nyc": "^15.0.1"
+	}
 }
